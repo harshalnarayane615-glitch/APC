@@ -1,0 +1,60 @@
+# Q7: Single Python Program with Output
+
+import pandas as pd
+import os
+
+# a) Copy a file after converting its contents to uppercase
+
+with open("input.txt", "w") as f:
+    f.write("welcome to python programming")
+
+with open("input.txt", "r") as f:
+    data = f.read()
+
+with open("output.txt", "w") as f:
+    f.write(data.upper())
+
+print("A) File copied with uppercase content.")
+print("Output:", data.upper())
+
+
+# b) Create a DataFrame using dictionary
+
+student = {
+    "Name": ["Harshal", "Rahul", "Amit"],
+    "Roll_No": [1, 2, 3],
+    "Marks": [85, 78, 90]
+}
+
+df = pd.DataFrame(student)
+
+print("\nB) Student DataFrame:")
+print(df)
+
+
+# c) Create college package with modules
+
+os.makedirs("college", exist_ok=True)
+
+with open("college/__init__.py", "w") as f:
+    pass
+
+with open("college/student.py", "w") as f:
+    f.write("def student_info(): return 'Student Information'")
+
+with open("college/faculty.py", "w") as f:
+    f.write("def faculty_info(): return 'Faculty Information'")
+
+with open("college/course.py", "w") as f:
+    f.write("def course_info(): return 'Course Information'")
+
+from college.student import student_info
+from college.faculty import faculty_info
+from college.course import course_info
+
+print("\nC) College Package:")
+print(student_info())
+print(faculty_info())
+print(course_info())
+
+
